@@ -10,7 +10,10 @@ export class RecipeListComponent implements OnInit {
 
   recipes: Recipe[] = [
     new Recipe('Mushrooms Recipe Kitchen French Dish', 'yummy, yummy',
-    'https://www.maxpixel.net/static/photo/1x/Mushrooms-Recipe-Kitchen-French-Dish-2459679.jpg')
+    'https://www.maxpixel.net/static/photo/1x/Mushrooms-Recipe-Kitchen-French-Dish-2459679.jpg'),
+    new Recipe('Mushrooms Recipe Kitchen French Dish', 'yummy, yummy',
+      'https://www.maxpixel.net/static/photo/1x/Mushrooms-Recipe-Kitchen-French-Dish-2459679.jpg')
+
   ];
   constructor() { }
 
