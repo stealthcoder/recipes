@@ -18,4 +18,18 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeItem(item: Ingredient) {
+    console.table(this.ingredients);
+    console.log('removing '+ item.name);
+    if (this.ingredients.find(x => x === item))
+      console.log('found')
+    this.ingredients = this.ingredients.filter(x => x.name !== item.name);
+    console.table(this.ingredients);
+  }
+
+  addItem(item: Ingredient) {
+    console.log(item);
+    this.ingredients.push(item);
+    console.table(this.ingredients);
+  }
 }
