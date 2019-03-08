@@ -9,23 +9,29 @@ import {ShoppinglistService} from './shoppinglist.service';
 })
 export class ShoppingListComponent implements OnInit {
 
-  // ingredients: Ingredient[] = [
-  //   new Ingredient('Apple',10),
-  //   new Ingredient('Tomato',3),
-  // ];
   ingredients: Ingredient[];
 
   constructor(private shopplistService: ShoppinglistService) { }
 
   ngOnInit() {
-    this.ingredients = this.shopplistService.ingredients;
-  }
+    this.ingredients = this.shopplistService.getIngredients();
 
-  removeItem(item: Ingredient) {
-    this.shopplistService.removeItem(item);
-  }
+    // my approach
+    // this.shopplistService.removedIngredient.subscribe(
+    //   (removed: Ingredient) => {
+    //     this.ingredients = this.ingredients.filter(item => item.name !== removed.name);
+    //   }
+    // );
+    //
+    // this.shopplistService.addedIngredient.subscribe(
+    //   (added: Ingredient) => {
+    //     this.ingredients.push(added);
+    //   });
 
-  addItem(item: Ingredient) {
-    this.shopplistService.addItem(item);
+    // other approach
+    this.shopplistService.itemChanged.subscribe(
+      (latest: Ingredient[]) => {
+      this.ingredients = latest;
+    });
   }
 }
